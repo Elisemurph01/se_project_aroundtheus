@@ -7,3 +7,18 @@
 .header__line {
   background: transparent url(../images/Line.svg) center no-repeat;
 }
+
+@media screen and (max-width: 320px) {
+  .header {
+    margin-left: 27px;
+    width: 126px;
+    height: 24px;
+    margin-top: 28px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    margin-left: 25px;
+  }
+}
