@@ -3,7 +3,7 @@
 }
 
 .cards__title {
-  margin: 0 auto;
+  margin: 0;
   max-width: 219px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -64,6 +64,6 @@
   }
 
   .cards__list {
-    padding-top: none;
+    padding-top: 36px;
   }
 }
