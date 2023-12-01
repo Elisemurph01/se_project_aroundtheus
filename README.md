@@ -20,4 +20,4 @@ I used VS code for creating the main layout of the website as well as Google Dev
 
 Link to Website on Github -
 
-git@github.com:Elisemurph01/se_project_aroundtheus.git
+https://elisemurph01.github.io/se_project_aroundtheus/
