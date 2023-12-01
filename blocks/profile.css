@@ -27,6 +27,7 @@
 
 .profile__info {
   display: grid;
+  align-items: center;
   grid-template-areas:
     "title button"
     "description description";
@@ -38,7 +39,6 @@
   height: 24px;
   width: 24px;
   grid-area: button;
-  margin-top: 15px;
   border: 1px solid #ffffff;
   cursor: pointer;
   transition: opacity 0.6s ease-out;
@@ -97,7 +97,7 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    margin: 0 0 0 10px;
+    margin-left: 10px;
   }
 
   .profile__add-button {
@@ -136,5 +136,11 @@
 
   .profile__add-button {
     width: 282px;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
   }
 }
