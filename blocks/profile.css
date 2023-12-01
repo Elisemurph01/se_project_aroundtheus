@@ -92,7 +92,6 @@
 
   .profile__description {
     width: 100%;
-    max-width: 300px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
