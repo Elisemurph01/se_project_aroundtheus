@@ -33,13 +33,13 @@ const modalCloseButton = profileEditModal.querySelector("#modal-close-button");
 
 /* FUNCTIONS */
 
-function closeModal() {
+function closePopup() {
     profileEditModal.classList.remove("modal_opened");
   }
 
 /* EVENT LISTENERS */
 
 profileEditButton.addEventListener('click', () => {
-    profileEditButton.classList.add("modal_opened")
+    profileEditModal.classList.add("modal_opened")
 });
-modalCloseButton.addEventListener('click', closeModal(profileEditModal));
+modalCloseButton.addEventListener('click', closePopup);
