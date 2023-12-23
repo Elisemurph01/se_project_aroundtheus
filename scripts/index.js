@@ -77,15 +77,12 @@ profileEditButton.addEventListener('click', () => {
     profileTitleInput.value = profileName.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
 });
-profileEditModal.addEventListener("click", () => openModal(profileEditModal));
-profileModalCloseButton.addEventListener('click', () => closePopup(profileModalCloseButton));
+profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+profileModalCloseButton.addEventListener('click', () => closePopup(profileEditModal));
 profileEditForm.addEventListener('submit', handleProfileEditSubmit);
 
-addCardModal.addEventListener('click', () => 
-    openModal(addCardModal));
-
-addCardModalCloseButton.addEventListener("click", () => 
-    closePopup(addCardModal));
+addNewCardButton.addEventListener('click', () => openModal(addCardModal));
+addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal));
 
 initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
