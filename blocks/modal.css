@@ -50,7 +50,31 @@
   border-width: 1px;
 }
 
+.modal__input-type-title {
+  width: 358px;
+  height: 27.34px;
+  margin-bottom: 29.74px;
+  padding: 0;
+  border-style: none none solid none;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 1px;
+}
+
+.modal__input-type-url {
+  width: 358px;
+  height: 27.34px;
+  margin-bottom: 29.74px;
+  padding: 0;
+  border-style: none none solid none;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 1px;
+}
+
 .modal__form-input:nth-of-type(2n) {
+  margin-bottom: 0;
+}
+
+.modal__input-type-url:nth-of-type(2n) {
   margin-bottom: 0;
 }
 

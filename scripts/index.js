@@ -68,7 +68,7 @@ function handleProfileEditSubmit(e) {
     e.preventDefault();
     profileName.textContent = profileTitleInput.value;
     profileDescription.textContent = profileDescriptionInput.value;
-    closePopup();
+    closePopup(profileEditModal);
 }
 
 /* EVENT LISTENERS */
