@@ -100,6 +100,6 @@ addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 addNewCardButton.addEventListener('click', () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal));
 
-initialCards.forEach(cardData) => {
-    renderCard(cardData, cardListEl);
-}
+initialCards.forEach((cardData) => {
+    renderCard(cardData, cardListEl)
+});
