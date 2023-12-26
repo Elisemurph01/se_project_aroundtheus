@@ -35,7 +35,7 @@
         <section class="cards page__section">
           <ul class="cards__list"></ul>
           <template id="card-template">
-            <li class="cards_list-position">
+            <li class="cards_list-order">
               <img src="" class="cards__image" alt="" />
               <div class="cards__description">
                 <h2 class="cards__title"></h2>
@@ -111,12 +111,16 @@
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
+      <!--Preview Image Modal-->
       <div class ="modal" id="preview__image-modal">
-        <div class="modal__container modal__container_type_image">
-        <button class="modal__close">
-          <img class="modal__image" src="#" alt="">
-          <p class="modal__image-title"></p>
+        <div class="modal__image-container">
+        <button class="modal__close"
+        id="image-close-modal"
+        type="button"
+        aria-label="close modal">
         </button>
+        <img class="modal__image" src="#" alt="">
+        <p class="modal__image-title"></p>
         </div>
       </div>
     <script src="./scripts/index.js"></script>

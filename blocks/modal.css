@@ -39,9 +39,14 @@
   height: 330px;
 }
 
-.modal__container_type_image {
-  padding: 0;
-  background: none;
+.modal__image-container {
+  background-color: transparent;
+  padding-top: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .modal__form {
