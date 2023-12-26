@@ -63,7 +63,7 @@ function getCardElement(cardData) {
     likeButton.addEventListener("click", () => {
       likeButton.classList.toggle("cards__like-button_active");
     });
-    
+
     const trashButton = cardElement.querySelector(".cards__trash-button");
     trashButton.addEventListener("click", () => {
       cardElement.remove();
@@ -71,7 +71,7 @@ function getCardElement(cardData) {
 
     cardImageEl.addEventListener("click", () => {
         previewImageModal.setAttribute("src", cardData.link);
-        previewImageModal.setAttribute("src", cardData.name);
+        previewImageModal.setAttribute("alt", cardData.name);
         previewImageTitle.textContent = cardData.name;
         openModal(previewImageModal);
     });
@@ -79,6 +79,7 @@ function getCardElement(cardData) {
     cardTitleEl.textContent = cardData.name;
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
+
     return cardElement;
 }
 
