@@ -41,6 +41,8 @@ const addNewCardButton = document.querySelector("#profile-add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = addCardModal.querySelector('#add-modal-close-button');
 const addCardFormElement = addCardModal.querySelector(".modal__form");
+const previewImageModal = document.querySelector(".modal__image");
+const previewImageTitle = document.querySelector(".modal__image-title");
 
 
 /* FUNCTIONS */
@@ -61,10 +63,19 @@ function getCardElement(cardData) {
     likeButton.addEventListener("click", () => {
       likeButton.classList.toggle("cards__like-button_active");
     });
+    
     const trashButton = cardElement.querySelector(".cards__trash-button");
     trashButton.addEventListener("click", () => {
       cardElement.remove();
     });
+
+    cardImageEl.addEventListener("click", () => {
+        previewImageModal.setAttribute("src", cardData.link);
+        previewImageModal.setAttribute("src", cardData.name);
+        previewImageTitle.textContent = cardData.name;
+        openModal(previewImageModal);
+    });
+
     cardTitleEl.textContent = cardData.name;
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
