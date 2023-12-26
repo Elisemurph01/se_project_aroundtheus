@@ -42,6 +42,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = addCardModal.querySelector('#add-modal-close-button');
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 
+
 /* FUNCTIONS */
 
 function closePopup(modal) {
@@ -56,6 +57,14 @@ function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardImageEl = cardElement.querySelector('.cards__image');
     const cardTitleEl = cardElement.querySelector('.cards__title');
+    const likeButton = cardElement.querySelector(".cards__like-button");
+    likeButton.addEventListener("click", () => {
+      likeButton.classList.toggle("cards__like-button_active");
+    });
+    const trashButton = cardElement.querySelector(".cards__trash-button");
+    trashButton.addEventListener("click", () => {
+      cardElement.remove();
+    });
     cardTitleEl.textContent = cardData.name;
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
@@ -83,7 +92,7 @@ function handleAddCardFormSubmit(e) {
 
 function renderCard(cardData, wrapper) {
     const cardElement = getCardElement(cardData);
-    cardListEl.prepend(cardElement);
+    cardListEl.append(cardElement);
 }
 
 /* EVENT LISTENERS */
