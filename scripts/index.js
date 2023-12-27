@@ -94,20 +94,19 @@ function handleProfileEditSubmit(e) {
     closePopup(profileEditModal);
 }
 
+function renderCard(cardData) {
+    const cardElement = getCardElement(cardData);
+    cardListEl.prepend(cardElement);
+}
 function handleAddCardFormSubmit(e) {
     e.preventDefault();
     const cardTitleInput = addCardFormElement.querySelector(".modal__input-type-title");
     const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
-    renderCard(name, link), cardListEl;
+    renderCard({ name, link }, cardListEl);
     addCardFormElement.reset();
     closePopup(addCardModal);
-}
-
-function renderCard(cardData, wrapper) {
-    const cardElement = getCardElement(cardData);
-    cardListEl.prepend(cardElement);
 }
 
 /* EVENT LISTENERS */
