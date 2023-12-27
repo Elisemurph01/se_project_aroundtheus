@@ -26,7 +26,6 @@
 }
 
 .modal_opened {
-  display: flex;
   visibility: visible;
   opacity: 1;
   pointer-events: all;
@@ -55,34 +54,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 358px;
 }
-
-/*I removed width from each element you noted but it changed the layout of all my buttons/ modal widths
-nothing was in line with the assignment anymore. where am i going wrong? */
+/*with the width at 100% for children elements its again changing the layout of my forms?*/
 
 .modal__form-input {
   height: 27.34px;
-  width: 358px;
-  margin-bottom: 29.74px;
-  padding: 0;
-  border-style: none none solid none;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-width: 1px;
-}
-
-.modal__input-type-title {
-  height: 27.34px;
-  width: 358px;
-  margin-bottom: 29.74px;
-  padding: 0;
-  border-style: none none solid none;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-width: 1px;
-}
-
-.modal__input-type-url {
-  height: 27.34px;
-  width: 358px;
+  width: 100%;
   margin-bottom: 29.74px;
   padding: 0;
   border-style: none none solid none;
@@ -100,7 +78,7 @@ nothing was in line with the assignment anymore. where am i going wrong? */
 
 .modal__button {
   font-size: 18px;
-  width: 358px;
+  width: 100%;
   height: 50.15px;
   background-color: #000;
   color: #fff;
