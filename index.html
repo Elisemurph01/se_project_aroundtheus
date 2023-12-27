@@ -30,7 +30,11 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button type="button" class="profile__add-button" id="profile-add-button"></button>
+          <button
+            type="button"
+            class="profile__add-button"
+            id="profile-add-button"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -45,7 +49,7 @@
                   class="cards__like-button"
                 ></button>
                 <button
-                  class ="cards__trash-button"
+                  class="cards__trash-button"
                   type="button"
                   aria-label="remove card"
                 ></button>
@@ -88,7 +92,7 @@
     </div>
     <!--Add modal-->
     <div class="modal" id="add-card-modal">
-      <div class="modal__container" >
+      <div class="modal__container">
         <button
           class="modal__close"
           id="add-modal-close-button"
@@ -111,18 +115,20 @@
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
-      <!--Preview Image Modal-->
-      <div class ="modal" id="preview__image-modal">
-        <div class="modal__image-container">
-        <button class="modal__close"
-        id="image-close-modal"
-        type="button"
-        aria-label="close modal">
-        </button>
-        <img class="modal__image" src="#" alt="">
+    </div>
+    <!--Preview Image Modal-->
+    <div class="modal" id="preview__image-modal">
+      <div class="modal__image-container">
+        <button
+          class="modal__close"
+          id="image-close-modal"
+          type="button"
+          aria-label="close modal"
+        ></button>
+        <img class="modal__image" src="#" alt="" />
         <p class="modal__image-title"></p>
-        </div>
       </div>
+    </div>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
