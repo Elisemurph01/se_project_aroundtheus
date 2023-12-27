@@ -101,12 +101,13 @@ function handleAddCardFormSubmit(e) {
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
     renderCard(name, link), cardListEl;
+    addCardFormElement.reset();
     closePopup(addCardModal);
 }
 
 function renderCard(cardData, wrapper) {
     const cardElement = getCardElement(cardData);
-    cardListEl.append(cardElement);
+    cardListEl.prepend(cardElement);
 }
 
 /* EVENT LISTENERS */

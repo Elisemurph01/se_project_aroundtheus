@@ -12,7 +12,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.5s, opacity 0.5s linear;
+  pointer-events: none;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .modal__heading {
@@ -28,6 +29,8 @@
   display: flex;
   visibility: visible;
   opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal__container {
@@ -54,9 +57,12 @@
   align-items: center;
 }
 
+/*I removed width from each element you noted but it changed the layout of all my buttons/ modal widths
+nothing was in line with the assignment anymore. where am i going wrong? */
+
 .modal__form-input {
-  width: 358px;
   height: 27.34px;
+  width: 358px;
   margin-bottom: 29.74px;
   padding: 0;
   border-style: none none solid none;
@@ -65,8 +71,8 @@
 }
 
 .modal__input-type-title {
-  width: 358px;
   height: 27.34px;
+  width: 358px;
   margin-bottom: 29.74px;
   padding: 0;
   border-style: none none solid none;
@@ -75,8 +81,8 @@
 }
 
 .modal__input-type-url {
-  width: 358px;
   height: 27.34px;
+  width: 358px;
   margin-bottom: 29.74px;
   padding: 0;
   border-style: none none solid none;
@@ -84,11 +90,11 @@
   border-width: 1px;
 }
 
-.modal__form-input:nth-of-type(2n) {
+.modal__form-input:last-of-type {
   margin-bottom: 0;
 }
 
-.modal__input-type-url:nth-of-type(2n) {
+.modal__input-type-url:last-of-type {
   margin-bottom: 0;
 }
 
@@ -140,12 +146,12 @@
     height: 322px;
   }
   .modal__form-input {
-    width: 238px;
     height: 27px;
+    width: 238px;
   }
   .modal__button {
-    width: 238px;
     height: 46px;
+    width: 238px;
   }
   .modal__close {
     width: 26px;
