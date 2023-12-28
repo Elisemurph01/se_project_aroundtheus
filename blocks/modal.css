@@ -55,8 +55,8 @@
   flex-direction: column;
   align-items: center;
   width: 358px;
+  margin-left: 36px;
 }
-/*with the width at 100% for children elements its again changing the layout of my forms?*/
 
 .modal__form-input {
   height: 27.34px;
