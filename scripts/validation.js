@@ -15,15 +15,13 @@ function hideInputError(formEl, inputEl, {inputErrorClass}) {
 
 function checkInputValidity(formEl, inputEl, options) {
     if (!inputEl.validity.valid) {
-       return showInputError(formEl, inputEl, options);
-    } 
-        hideInputError(formEl, inputEl, options);
-    
+        return showInputError(formEl, inputEl, options);
+    }
+    hideInputError(formEl, inputEl, options);
 };
 
 function hasInvalidInput(inputList) {
     return !inputList.every((inputEl) => inputEl.validity.valid);
-
 };
 
 function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
@@ -45,7 +43,6 @@ function setEventListeners(formEl, options) {
         inputEl.addEventListener("input", (e) => {
             checkInputValidity(formEl, inputEl, options);
             toggleButtonState(inputEls, submitButton, options);
-
         });
     });
 };
@@ -56,7 +53,6 @@ function enableValidation(options) {
         formEl.addEventListener("submit", (e) => {
             e.preventDefault();
         });
-
         setEventListeners(formEl, options);
     });
 };
