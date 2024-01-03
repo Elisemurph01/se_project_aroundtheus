@@ -25,20 +25,19 @@ function hasInvalidInput(inputList) {
 };
 
 function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
-
     if (hasInvalidInput(inputEls)) {
         submitButton.classList.add(inactiveButtonClass);
-        submitButton.disabled = true;
-        return;
-    }
+        submitButton.setAttribute("disabled", true);
+    } else{
         submitButton.classList.remove(inactiveButtonClass);
-        submitButton.disabled = false;
+        submitButton.removeAttribute("disabled");
+    }
 };
 
 function setEventListeners(formEl, options) {
     const { inputSelector } = options;
     const inputEls = [...formEl.querySelectorAll(options.inputSelector)];
-    const submitButton = formEl.querySelector(".popup__button");
+    const submitButton = formEl.querySelector(".modal__button");
     inputEls.forEach((inputEl) => {
         inputEl.addEventListener("input", (e) => {
             checkInputValidity(formEl, inputEl, options);
@@ -58,11 +57,11 @@ function enableValidation(options) {
 };
 
 const config = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button",
+    formSelector: ".modal__form",
+    inputSelector: ".modal__form-input",
+    submitButtonSelector: ".modal__button",
     inactiveButtonClass: "modal__button_disabled",
-    inputErrorClass: "popup__input_type_error",
+    inputErrorClass: "modal__input-error",
     errorClass: "popup__error_visible"
 };
 

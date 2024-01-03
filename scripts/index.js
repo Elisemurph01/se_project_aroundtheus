@@ -122,6 +122,8 @@ function handleAddCardFormSubmit(e) {
     const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
+    profileTitleInput.value = profileName.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
     renderCard({ name, link }, cardListEl);
     addCardFormElement.reset();
     closePopup(addCardModal);
@@ -131,8 +133,6 @@ function handleAddCardFormSubmit(e) {
 
 profileEditButton.addEventListener('click', () => {
     openModal(profileEditModal);
-    profileTitleInput.value = profileName.textContent;
-    profileDescriptionInput.value = profileDescription.textContent;
 });
 
 profileModalCloseButton.addEventListener('click', () => closePopup(profileEditModal));
