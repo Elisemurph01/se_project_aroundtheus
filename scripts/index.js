@@ -64,7 +64,7 @@ function openModal(modal) {
 
 function closeModalbyEscape(evt) {
     if (evt.key === "Escape") {
-        const openedModal = document.querySelector("modal__opened");
+        const openedModal = document.querySelector("modal_opened");
         closePopup(openedModal);
     }
 }
@@ -133,7 +133,8 @@ profileEditButton.addEventListener('click', () => {
     profileTitleInput.value = profileName.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
 });
-profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+
+profileEditButton.addEventListener("click", () => openModal(profileEditModal)); 
 profileModalCloseButton.addEventListener('click', () => closePopup(profileEditModal));
 profileEditForm.addEventListener('submit', handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
