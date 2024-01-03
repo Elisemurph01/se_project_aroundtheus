@@ -1,5 +1,3 @@
-// enabling validation by calling enableValidation()
-// pass all the settings on call
 
 function showInputError(formEl, inputEl, {inputErrorClass}) {
     const errorMessageEl = formEl.querySelector("#${inputEl.id}-error");
@@ -26,7 +24,7 @@ function checkInputValidity(formEl, inputEl, options) {
 function hasInvalidInput(inputList) {
     return !inputList.every((inputEl) => inputEl.validity.valid);
 
-}
+};
 
 function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
     let foundInvalid = false;
@@ -38,7 +36,7 @@ function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
     }
         submitButton.ClassList.remove(inactiveButtonClass);
         submitButton.disabled = false;
-}
+};
 
 function setEventListeners(formEl, options) {
     const { inputSelector } = options;
@@ -61,17 +59,8 @@ function enableValidation(options) {
         });
 
         setEventListeners(formEl, options);
-
-        //look for all inputs inside form
-        //loop through all inpputs to see if are valid
-        // if input is not valid, get validation message
-        //add error class to input
-        //display error message
-        //disable button
-        //all inputs are valid, enable button 
-        //reset error messages
     });
-}
+};
 
 const config = {
     formSelector: ".popup__form",

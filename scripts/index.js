@@ -51,12 +51,30 @@ const previewImage = document.querySelector(".modal__image");
 
 function closePopup(modal) {
     modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", closeModalbyEscape);
+    modal.removeEventListener("mousedown", closeModalOutsideClick);
+ 
 }
 
 function openModal(modal) {
     modal.classList.add("modal_opened");
+    document.addEventListener("keydown", closeModalbyEscape);
+    modal.addEventListener("mousedown", closeModalOutsideClick);
+}
+
+function closeModalbyEscape(evt) {
+    if (evt.key === "Escape") {
+        const openedModal = document.querySelector("modal__opened");
+        closePopup(openedModal);
+    }
 }
   
+function closeModalOutsideClick(evt) {
+    if (evt.target === evt.currentTarget) {
+        closePopup(evt.currentTarget);
+    }
+}
+
 function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardImageEl = cardElement.querySelector('.cards__image');
