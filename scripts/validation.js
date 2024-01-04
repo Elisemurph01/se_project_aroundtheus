@@ -1,16 +1,16 @@
 
 function showInputError(formEl, inputEl, {inputErrorClass}) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-    inputEl.ClassList.add(inputErrorClass);
+    inputEl.classList.add(inputErrorClass);
     errorMessageEl.textContent = inputEl.validationMessage;
-    errorMessageEl.ClassList.add(errorClass);
+    errorMessageEl.classList.add(errorClass);
 };
 
 function hideInputError(formEl, inputEl, {inputErrorClass}) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-    inputEl.ClassList.remove(inputErrorClass);
+    inputEl.classList.remove(inputErrorClass);
     errorMessageEl.textContent ="";
-    errorMessageEl.ClassList.add(errorClass);
+    errorMessageEl.classList.add(errorClass);
 };
 
 function checkInputValidity(formEl, inputEl, options) {
