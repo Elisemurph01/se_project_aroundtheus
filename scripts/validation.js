@@ -1,12 +1,12 @@
 
-function showInputError(formEl, inputEl, {inputErrorClass}) {
+function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.add(inputErrorClass);
     errorMessageEl.textContent = inputEl.validationMessage;
     errorMessageEl.classList.add(errorClass);
 };
 
-function hideInputError(formEl, inputEl, {inputErrorClass}) {
+function hideInputError(formEl, inputEl,{inputErrorClass, errorClass}) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.remove(inputErrorClass);
     errorMessageEl.textContent ="";
@@ -37,7 +37,7 @@ function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
 function setEventListeners(formEl, options) {
     const { inputSelector } = options;
     const inputEls = [...formEl.querySelectorAll(options.inputSelector)];
-    const submitButton = formEl.querySelector(".modal__button");
+    const submitButton = formEl.querySelector(options.submitButtonSelector);
     inputEls.forEach((inputEl) => {
         inputEl.addEventListener("input", (e) => {
             checkInputValidity(formEl, inputEl, options);
@@ -61,8 +61,8 @@ const config = {
     inputSelector: ".modal__form-input",
     submitButtonSelector: ".modal__button",
     inactiveButtonClass: "modal__button_disabled",
-    inputErrorClass: ".modal__input-error",
-    errorClass: ".popup__error_visible"
+    inputErrorClass: "modal__error",
+    errorClass: "modal__error_visible"
 };
 
 enableValidation(config);

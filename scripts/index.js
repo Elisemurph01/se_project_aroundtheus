@@ -64,7 +64,7 @@ function openModal(modal) {
 
 function closeModalbyEscape(evt) {
     if (evt.key === "Escape") {
-        const openedModal = document.querySelector("modal_opened");
+        const openedModal = document.querySelector(".modal_opened");
         closePopup(openedModal);
     }
 }
@@ -118,8 +118,8 @@ function renderCard(cardData) {
 }
 function handleAddCardFormSubmit(e) {
     e.preventDefault();
-    const cardTitleInput = addCardFormElement.querySelector(".modal__input-type-title");
-    const cardUrlInput = addCardFormElement.querySelector(".modal__input-type-url");
+    const cardTitleInput = addCardFormElement.querySelector("#modal-add-form-input");
+    const cardUrlInput = addCardFormElement.querySelector("#modal-form-url-input");
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
     renderCard({ name, link }, cardListEl);

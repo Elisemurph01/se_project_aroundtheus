@@ -82,10 +82,7 @@
             minlength="2"
             required
           />
-          <span
-            class="modal__input-error"
-            id="modal-form-name-input-error"
-          ></span>
+          <span class="modal__error" id="profile-title-input-error"></span>
           <input
             class="modal__form-input"
             type="text"
@@ -97,8 +94,8 @@
             maxlength="200"
           />
           <span
-            class="modal__input-error"
-            id="modal-form-description-input-error"
+            class="modal__error"
+            id="profile-description-input-error"
           ></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
@@ -124,10 +121,7 @@
             minlength="1"
             maxlength="30"
           />
-          <span
-            class="modal__input-error"
-            id="modal-add-form-input-error"
-          ></span>
+          <span class="modal__error" id="modal-add-form-input-error"></span>
           <input
             class="modal__form-input"
             type="url"
@@ -136,11 +130,12 @@
             name="url"
             required
           />
-          <span
-            class="modal__input-error"
-            id="modal-form-url-input-error"
-          ></span>
-          <button class="modal__button modal__button_disabled" type="submit">
+          <span class="modal__error" id="modal-form-url-input-error"></span>
+          <button
+            class="modal__button modal__button_disabled"
+            id="modal__submit"
+            type="submit"
+          >
             Save
           </button>
         </form>
