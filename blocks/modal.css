@@ -108,6 +108,10 @@
   cursor: default;
 }
 
+.modal__button:hover {
+  opacity: 80%;
+}
+
 .modal__button_disabled:hover {
   opacity: 0.2;
   cursor: default;
@@ -115,10 +119,6 @@
 
 .modal__error_visible {
   color: red;
-}
-
-.modal__button:hover {
-  opacity: 80%;
 }
 
 .modal__close {
