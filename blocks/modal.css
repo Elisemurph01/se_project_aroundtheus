@@ -151,6 +151,12 @@
     height: 27px;
     width: 238px;
   }
+
+  .modal__form {
+    width: 100%;
+    margin: 0;
+  }
+
   .modal__button {
     height: 46px;
     width: 238px;
