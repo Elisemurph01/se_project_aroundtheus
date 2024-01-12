@@ -30,13 +30,14 @@ export default class Card {
     getView() {
         this._cardElement = document
             .querySelector(this._cardSelector)
-            .content.querySelector(".card-template")
+            .content.querySelector(this._cardTemplate)
             .cloneNode(true);
     
         this._likeButton = this._cardElement.querySelector(".cards__like-button");
         this._trashButton = this._cardElement.querySelector(".cards__trash-button");
         this._cardImageEl = this._cardElement.querySelector(".cards__image");
         this._cardTitleEl = this._cardElement.querySelector(".card__description");
+        this._cardTemplate = this._cardElement.querySelector("#.card-template");
         
 
         this._CardTitleEl.textContent = this.name;
