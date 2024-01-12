@@ -4,7 +4,6 @@ export default class Card {
         this._link = link;
         this._cardSelector = cardSelector;
         this._handleImageClick = this._handleImageClick;
-        this._cardTemplate = cardTemplate;
     }
 
     _setEventListeners() {
@@ -30,7 +29,7 @@ export default class Card {
 
     getView() {
         this._cardElement = document
-            .querySelector(this._cardTemplate)
+            .querySelector(this._cardSelector)
             .content.querySelector(".card-template")
             .cloneNode(true);
     

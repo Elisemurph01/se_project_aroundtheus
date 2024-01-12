@@ -43,8 +43,6 @@ const cardData =     {
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
 }
 
-const card = new Card(cardData, "#card-template");
-card.getView();
 
 /* ELEMENTS */
 
@@ -134,6 +132,7 @@ function handleProfileEditSubmit(e) {
 }
 
 function renderCard(cardData) {
+    const card = new Card(cardData, "#card-template")
     const cardElement = getCardElement(cardData);
     cardListEl.prepend(cardElement);
 }
@@ -168,3 +167,14 @@ previewImageCloseButton.addEventListener("click", () => closePopup(previewImageM
 initialCards.forEach((cardData) => {
     renderCard(cardData, cardListEl)
 });
+
+const addCardFormValidator = new FormValidator(config, addCardFormElement);
+addCardFormValidator.enableValidation();
+
+const editProfileFormValidator = new FormValidator(config, profileEditForm);
+editProfileFormValidator.enableValidation();
+
+const newPopupForm = new PopupWithForm("#profile-edit-modal");
+newPopupForm.setEventListeners();
+
+const editProfileForm = new UserInfo(profileTitleInput, profileDescriptionInput);
