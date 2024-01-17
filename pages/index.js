@@ -142,7 +142,7 @@ function handleProfileEditSubmit(e) {
 
 function renderCard(cardData) {
     const card = new Card(cardData, "#card-template")
-    const cardElement = getCardElement(cardData);
+    const cardElement = card.getView();
     cardListEl.prepend(cardElement);
 }
 
