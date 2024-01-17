@@ -1,17 +1,16 @@
 
 export default class FormValidator {
     constructor(config, form) {
-        this._form = form;
-        this._inputSelector = inputSelector;
-        this._submitButtonSelector = submitButtonSelector;
-        this._inactiveButtonClass = inactiveButtonClass;
-        this._inputErrorClass = inputErrorClass;
-        this._errorClass = errorClass;
-        this._formElement = this.formElement;
+        this._inputSelector = config.inputSelector;
+        this._submitButtonSelector = config.submitButtonSelector;
+        this._inactiveButtonClass = config.inactiveButtonClass;
+        this._inputErrorClass = config.inputErrorClass;
+        this._errorClass = config.errorClass;
+        this._formElement = config.formElement;
     }
 
     _showInputError(inputEl) {
-        const errorMessageEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+        const errorMessageEl = this._formElement.querySelector(`#${inputEl.id}-error`);
         inputEl.classList.add(this._inputErrorClass);
         this._errorMessageEl.textContent = inputEl.validationMessage;
         this._errorMessageEl.classList.add(this._errorClass);
@@ -19,7 +18,7 @@ export default class FormValidator {
     }
 
     _hideInputError(inputEl) {
-        const errorMessageEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+        const errorMessageEl = this._formElement.querySelector(`#${inputEl.id}-error`);
         inputEl.classList.remove(this._inputErrorClass);
         this._errorMessageEl.classList.remove(this._errorClass);
         this._errorMessageEl.textContent = "";
@@ -68,7 +67,7 @@ export default class FormValidator {
     }
 
     enableValidation() {
-        this._formEl.addEventListener("submit", (e) => {
+        this.formElement.addEventListener("submit", (e) => {
             e.preventDefault();
         });
         this._setEventListeners();
