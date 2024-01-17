@@ -74,6 +74,17 @@ const formValidationConfig = {
     errorClass: "modal__error_visible"
 };
 
+const formList = Array.from(document.querySelectorAll(formValidationConfig.formSelector)); 
+const formValidator = {};
+formList.forEach((form) => {
+    const validator = new FormValidator(form, formValidationConfig);
+    const formName = form.getAttribute("name");
+    formValidator[formName] = validator;
+});
+
+formValidator.profileEditForm.enableValidation();
+
+formValidator.addCardFormElement.enableValidation();
 
 /* FUNCTIONS */
 
@@ -178,6 +189,8 @@ previewImageCloseButton.addEventListener("click", () => closePopup(previewImageM
 initialCards.forEach((cardData) => {
     const cardElement = renderCard(cardData, cardListEl);
   });
+
+
 
 
 
