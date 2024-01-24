@@ -32,24 +32,23 @@ export default class Card {
             }
 
 
-    getView() {
-        this._cardElement = document
-            .querySelector(this._cardSelector)
-            .content.querySelector(".card")
-            .cloneNode(true);
-        
-        return this._cardElement;
+    _getView() {
+        return document
+        .querySelector(this._cardSelector)
+        .content.querySelector(".ananas")
+        .cloneNode(true);
     }
     
     generateCard() {
+        this._cardElement = this._getView();
         this._likeButton = this._cardElement.querySelector(".cards__like-button");
         this._trashButton = this._cardElement.querySelector(".cards__trash-button");
         this._cardImageEl = this._cardElement.querySelector(".cards__image");
-        this._cardTitleEl = this._cardElement.querySelector(".card__description");
-        this._cardTemplate = this._cardElement.querySelector("#.card-template");
+        this._cardTitleEl = this._cardElement.querySelector(".cards__description");
+        this._cardTemplate = this._cardElement.querySelector("#card-template");
     
-        this._CardTitleEl.querySelector(".cards__title").textContent = this.name;
-        this._CardImageEl.setAttribute("src", this._link);
+        this._cardTitleEl.textContent = this.name;
+        this._cardImageEl.setAttribute("src", this._link);
         this._cardImageEl.setAttribute("alt", this._name);
 
         return this._cardElement

@@ -74,17 +74,8 @@ const formValidationConfig = {
     errorClass: "modal__error_visible"
 };
 
-const formList = Array.from(document.querySelectorAll(formValidationConfig.formSelector)); 
-const formValidator = {};
-formList.forEach((form) => {
-    const validator = new FormValidator(form, formValidationConfig);
-    const formName = form.getAttribute("name");
-    formValidator[formName] = validator;
-});
-
-formValidator.profileEditForm.enableValidation();
-
-formValidator.addCardFormElement.enableValidation();
+const profileEditFormValidator = new FormValidator(formValidationConfig, profileEditForm);
+profileEditFormValidator.enableValidation();
 
 /* FUNCTIONS */
 
@@ -152,9 +143,9 @@ function handleProfileEditSubmit(e) {
 }
 
 function renderCard(cardData) {
-    const card = new Card(cardData, "#card-template")
-    const cardElement = card.getView();
-    cardListEl.prepend(cardElement);
+    const card = new Card(cardData, "#card-template");
+    const renderNewCard = card.generateCard();
+    cardListEl.prepend(renderNewCard);
 }
 
 function handleAddCardFormSubmit(e) {
