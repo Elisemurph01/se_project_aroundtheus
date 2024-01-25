@@ -71,16 +71,6 @@ export default class FormValidator {
         this._setEventListeners();
     }
 
-    // checkValidity() {
-    //     const inputList = Array.from(
-    //         this._formElement.querySelectorAll(this._inputSelector)
-    //     );
-    //     inputList.forEach((inputEl) => {
-    //         this._checkInputValidity(inputEl);
-    //         this._toggleButtonState(inputList);
-    //     });
-    // }
-
     enableValidation() {
         this._setEventListeners();
     }

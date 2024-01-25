@@ -23,7 +23,7 @@ export default class Card {
     }
 
     _handleLikeIcon() {
-        this._likeButton.classList.toggle("cards__like-button_active");
+        this._likeButton.classList.toggle(".cards__like-button_active");
     }
 
     _handleDeleteCard() {
@@ -35,7 +35,7 @@ export default class Card {
     _getView() {
         return document
         .querySelector(this._cardSelector)
-        .content.querySelector(".ananas")
+        .content.querySelector(".list")
         .cloneNode(true);
     }
     
