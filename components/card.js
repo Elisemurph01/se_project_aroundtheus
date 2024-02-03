@@ -23,13 +23,17 @@ export default class Card {
     }
 
     _handleLikeIcon() {
-        this._likeButton.classList.toggle(".cards__like-button_active");
+        this._likeButton.classList.toggle("cards__like-button_active");
     }
 
     _handleDeleteCard() {
         this._cardElement.remove();
         this._cardElement = null;
-            }
+    }
+    
+    _handleImageClick() {
+        
+    }
 
 
     _getView() {
