@@ -51,6 +51,8 @@ export default class Card {
         this._cardImageEl.setAttribute("src", this._link);
         this._cardImageEl.setAttribute("alt", this._name);
 
+        this._setEventListeners();
+
         return this._cardElement
     }
 }

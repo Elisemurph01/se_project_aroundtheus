@@ -43,14 +43,14 @@ export default class FormValidator {
     };
 
     _hasInvalidInput(inputList) {
-        return this._inputEls.every((inputEl) => {
+        return this._inputEl.every((inputEl) => {
             return !inputEl.validity.valid;
         });
     };
 
     _setEventListeners() {
         const inputList = Array.from(
-            this._formElement.querySelectorAll(this.inputSelector)
+            this._formElement.querySelectorAll(this._inputSelector)
         );
 
         this._submitButton = this._formElement.querySelector(this._submitButtonSelector);
@@ -65,7 +65,7 @@ export default class FormValidator {
     }
 
     enableValidation() {
-        this.formElement.addEventListener("submit", (e) => {
+        this._formElement.addEventListener("submit", (e) => {
             e.preventDefault();
         });
         this._setEventListeners();
@@ -81,7 +81,7 @@ export default class FormValidator {
     }
 
     formReset() {
-        this.formElement.reset();
+        this._formElement.reset();
     }
 
 }
