@@ -1,5 +1,9 @@
 import FormValidator from "../components/FormValidator.js";
-import Card from "../components/card.js";
+import Card from "../components/Card.js";
+
+// I tried making the changes you recommended in the review, not sure what happened but I cant get my cards to appear anymore. 
+// Still working on the other recommended changes.
+
 
 const initialCards = [
     {
@@ -28,20 +32,20 @@ const initialCards = [
     }
 ]
 
-const cardData =     {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
-}
+// const cardData =     {
+//     name: "Yosemite Valley",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+//     name: "Lake Louise",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+//     name: "Bald Mountains",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+//     name: "Latemar",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+//     name: "Vanoise National Park",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+//     name: "Lago di Braies",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
+// }
 
 
 /* ELEMENTS */
@@ -108,33 +112,33 @@ function closeModalOutsideClick(evt) {
     }
 }
 
-function getCardElement(cardData) {
-    const cardElement = cardTemplate.cloneNode(true);
-    const cardImageEl = cardElement.querySelector('.cards__image');
-    const cardTitleEl = cardElement.querySelector('.cards__title');
-    const likeButton = cardElement.querySelector(".cards__like-button");
-    cardTitleEl.textContent = cardData.name;
-    cardImageEl.src = cardData.link;
-    cardImageEl.alt = cardData.name;
+// function getCardElement(cardData) {
+//     const cardElement = cardTemplate.cloneNode(true);
+//     const cardImageEl = cardElement.querySelector('.cards__image');
+//     const cardTitleEl = cardElement.querySelector('.cards__title');
+//     const likeButton = cardElement.querySelector(".cards__like-button");
+//     cardTitleEl.textContent = cardData.name;
+//     cardImageEl.src = cardData.link;
+//     cardImageEl.alt = cardData.name;
 
-    likeButton.addEventListener("click", () => {
-      likeButton.classList.toggle("cards__like-button_active");
-    });
+//     likeButton.addEventListener("click", () => {
+//       likeButton.classList.toggle("cards__like-button_active");
+//     });
 
-    const trashButton = cardElement.querySelector(".cards__trash-button");
-    trashButton.addEventListener("click", () => {
-      cardElement.remove();
-    });
+//     const trashButton = cardElement.querySelector(".cards__trash-button");
+//     trashButton.addEventListener("click", () => {
+//       cardElement.remove();
+//     });
 
-    cardImageEl.addEventListener("click", () => {
-        previewImage.setAttribute("src", cardData.link);
-        previewImageModal.setAttribute("alt", cardData.name);
-        previewImageTitle.textContent = cardData.name;
-        openModal(previewImageModal);
-    });
+//     cardImageEl.addEventListener("click", () => {
+//         previewImage.setAttribute("src", cardData.link);
+//         previewImageModal.setAttribute("alt", cardData.name);
+//         previewImageTitle.textContent = cardData.name;
+//         openModal(previewImageModal);
+//     });
 
-    return cardElement;
-}
+// return cardElement;
+// }
 
 /* EVENT HANDLERS */
 
@@ -145,11 +149,18 @@ function handleProfileEditSubmit(e) {
     closePopup(profileEditModal);
 }
 
-function renderCard(cardData) {
-    const card = new Card(cardData, "#card-template", handleImageClick);
-    const renderNewCard = card.generateCard();
-    cardListEl.prepend(renderNewCard);
+
+function createCard(item) {
+const card = new Card(cardData, "#card-template", handleImageClick); 
+  return cardListEl.generateCard();
 }
+
+
+function renderCard(cardData) {
+    const renderNewCard = createCard(cardData);
+    cardListEl.prepend(renderNewCard);
+  }
+  
 
 function handleAddCardFormSubmit(e) {
     e.preventDefault();
@@ -158,15 +169,15 @@ function handleAddCardFormSubmit(e) {
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
     renderCard({ name, link });
-    addCardFormElement.reset();
+    addCardFormElement.disable();
     closePopup(addCardModal);
 }
 
 function handleImageClick(cardData) {
     openModal(previewImageModal);
-    previewImage.src = cardData._link;
-    previewImage.alt = cardData._name;
-    previewImageTitle.textContent = cardData._name;
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewImageTitle.textContent = cardData.name;
 }
 
 /* EVENT LISTENERS */
@@ -187,8 +198,8 @@ addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal)
 previewImageCloseButton.addEventListener("click", () => closePopup(previewImageModal));
 
 
-initialCards.forEach((cardData) => {
-    const cardElement = renderCard(cardData);
+initialCards.forEach((renderCard) => {
+
   });
 
 

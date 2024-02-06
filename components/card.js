@@ -44,7 +44,6 @@ export default class Card {
         this._trashButton = this._cardElement.querySelector(".cards__trash-button");
         this._cardImageEl = this._cardElement.querySelector(".cards__image");
         this._cardTitleEl = this._cardElement.querySelector(".cards__title");
-        this._cardTemplate = this._cardElement.querySelector("#card-template");
     
         this._cardTitleEl.textContent = this._name;
         this._cardImageEl.setAttribute("src", this._link);
