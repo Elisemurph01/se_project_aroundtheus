@@ -45,10 +45,6 @@ export default class FormValidator {
         }
     };
 
-    _hasInvalidInput = (inputEl) => {
-        return !inputEl.validity.valid;
-    };
-
     _setEventListeners() {
         const inputList = Array.from(
             this._formElement.querySelectorAll(this._inputSelector)
