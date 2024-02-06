@@ -28,7 +28,7 @@ export default class FormValidator {
         this._errorMessageEl = this._formElement.querySelector(
             `#${inputEl.id}-error`
         );
-                if (!inputEl.validity.valid) {
+        if (!inputEl.validity.valid) {
             this._showInputError(inputEl);
         } else {
             this._hideInputError(inputEl);
@@ -45,10 +45,8 @@ export default class FormValidator {
         }
     };
 
-    _hasInvalidInput = (inputList) => {
-        return this._inputEl.every((inputEl) => {
-            return !inputEl.validity.valid;
-        });
+    _hasInvalidInput = (inputEl) => {
+        return !inputEl.validity.valid;
     };
 
     _setEventListeners() {
@@ -61,7 +59,7 @@ export default class FormValidator {
         inputList.forEach((inputEl) => {
             inputEl.addEventListener("input", () => {
                 this._checkInputValidity(inputEl);
-                this._toggleButtonState(inputList);
+                this._toggleButtonState(inputEl);
             });
         });
     }

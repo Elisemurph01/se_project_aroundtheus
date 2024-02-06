@@ -77,6 +77,9 @@ const formValidationConfig = {
 const profileEditFormValidator = new FormValidator(formValidationConfig, profileEditForm);
 profileEditFormValidator.enableValidation();
 
+const addCardFormValidator = new FormValidator(formValidationConfig, addCardFormElement);
+addCardFormValidator.enableValidation();
+
 /* FUNCTIONS */
 
 function closePopup(modal) {
@@ -142,7 +145,7 @@ function handleProfileEditSubmit(e) {
     closePopup(profileEditModal);
 }
 
-function renderCard(cardData) {
+function renderCard(cardData, handleImageClick) {
     const card = new Card(cardData, "#card-template");
     const renderNewCard = card.generateCard();
     cardListEl.prepend(renderNewCard);
@@ -157,6 +160,13 @@ function handleAddCardFormSubmit(e) {
     renderCard({ name, link }, cardListEl);
     addCardFormElement.reset();
     closePopup(addCardModal);
+}
+
+function handleImageClick(cardData) {
+    openModal(previewImageModal);
+    previewImage.src = cardData._link;
+    previewImage.alt = cardData._name;
+    previewImageTitle.textContent = cardData._name;
 }
 
 /* EVENT LISTENERS */
