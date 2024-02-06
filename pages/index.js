@@ -145,8 +145,8 @@ function handleProfileEditSubmit(e) {
     closePopup(profileEditModal);
 }
 
-function renderCard(cardData, handleImageClick) {
-    const card = new Card(cardData, "#card-template");
+function renderCard(cardData) {
+    const card = new Card(cardData, "#card-template", handleImageClick);
     const renderNewCard = card.generateCard();
     cardListEl.prepend(renderNewCard);
 }
@@ -157,7 +157,7 @@ function handleAddCardFormSubmit(e) {
     const cardUrlInput = addCardFormElement.querySelector("#modal-form-url-input");
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
-    renderCard({ name, link }, cardListEl);
+    renderCard({ name, link });
     addCardFormElement.reset();
     closePopup(addCardModal);
 }
@@ -188,7 +188,7 @@ previewImageCloseButton.addEventListener("click", () => closePopup(previewImageM
 
 
 initialCards.forEach((cardData) => {
-    const cardElement = renderCard(cardData, cardListEl);
+    const cardElement = renderCard(cardData);
   });
 
 

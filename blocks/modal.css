@@ -142,6 +142,12 @@
   max-height: 75vh;
 }
 
+.modal__image-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+}
+
 @media screen and (max-width: 635px) {
   .modal__container {
     width: 282px;
