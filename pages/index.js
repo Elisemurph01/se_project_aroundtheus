@@ -29,6 +29,27 @@ const initialCards = [
     }
 ]
 
+const cardData =     { 
+
+    name: "Yosemite Valley", 
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg", 
+
+    name: "Lake Louise", 
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg", 
+
+    name: "Bald Mountains", 
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg", 
+
+    name: "Latemar", 
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg", 
+
+    name: "Vanoise National Park", 
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg", 
+
+    name: "Lago di Braies", 
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ", 
+} 
+
 
 /* ELEMENTS */
 
@@ -132,16 +153,11 @@ function handleProfileEditSubmit(e) {
 }
 
 
-function createCard(item) {
-const card = new Card(cardData, "#card-template", handleImageClick); 
-  return cardListEl.generateCard();
-}
-
-
-function renderCard(cardData) {
-    const renderNewCard = createCard(cardData);
-    cardListEl.prepend(renderNewCard);
-  }
+function renderCard(cardData) { 
+    const card = new Card(cardData, "#card-template", handleImageClick); 
+    const renderNewCard = card.generateCard(); 
+    cardListEl.prepend(renderNewCard); 
+} 
   
 
 function handleAddCardFormSubmit(e) {
@@ -151,7 +167,7 @@ function handleAddCardFormSubmit(e) {
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
     renderCard({ name, link });
-    addCardFormElement.disable();
+    addCardFormElement.reset("disabled");
     closePopup(addCardModal);
 }
 
