@@ -173,9 +173,9 @@ function handleAddCardFormSubmit(e) {
 
 function handleImageClick(cardData) {
     openModal(previewImageModal);
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewImageTitle.textContent = cardData.name;
+    previewImage.src = cardData._link;
+    previewImage.alt = cardData._name;
+    previewImageTitle.textContent = cardData._name;
 }
 
 /* EVENT LISTENERS */
@@ -196,9 +196,7 @@ addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal)
 previewImageCloseButton.addEventListener("click", () => closePopup(previewImageModal));
 
 
-initialCards.forEach((renderCard) => {
-
-  });
+initialCards.forEach(renderCard);
 
 
 
