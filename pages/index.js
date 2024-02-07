@@ -1,9 +1,6 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 
-// I tried making the changes you recommended in the review, not sure what happened but I cant get my cards to appear anymore. 
-// Still working on the other recommended changes.
-
 
 const initialCards = [
     {
