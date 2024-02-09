@@ -114,9 +114,13 @@ function handleProfileEditSubmit(e) {
 }
 
 function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const renderNewCard = card.generateCard();
+  const renderNewCard = createCard(cardData);
   cardListEl.prepend(renderNewCard);
+}
+
+function createCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  return card.generateCard();
 }
 
 function handleAddCardFormSubmit(e) {
@@ -131,7 +135,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link });
   addCardFormElement.reset();
-  addCardFormValidator.resetValidation();
+  addCardFormValidator.disableButton();
   closePopup(addCardModal);
 }
 
