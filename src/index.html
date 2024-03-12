@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Elise Murphey" />
     <meta name="keywords" content="HTML CSS" />
-    <link rel="stylesheet" href="pages/index.css" />
     <title>Around the U.S.</title>
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/Vector.svg"
+          src="<%=require(./images/Vector.svg)%>"
           alt="Around the U.S. Logo"
           class="header__logo"
         />
@@ -156,6 +155,5 @@
         <h2 class="modal__image-title"></h2>
       </div>
     </div>
-    <script src="./pages/index.js" defer type="module"></script>
   </body>
 </html>

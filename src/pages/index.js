@@ -1,5 +1,11 @@
-import FormValidator from "../components/FormValidator.js";
-import Card from "../components/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
+import Card from "../scripts/Card.js";
+import Section from "../scripts/Section.js";
+import Modal from "../scripts/Modal.js";
+import ModalWithForm from "../scripts/ModalWithForm.js";
+import ModalWithImage from "../scripts/ModalWithImage.js";
+import UserInfo from "../scripts/UserInfo.js";
+import "../pages/index.css";
 
 const initialCards = [
   {
@@ -76,6 +82,19 @@ const addCardFormValidator = new FormValidator(
   addCardFormElement
 );
 addCardFormValidator.enableValidation();
+
+const addImageModal = new ModalWithForm(
+  "#add-card-modal",
+  handleAddCardFormSubmit,
+  formValidationConfig
+);
+
+const previewModal = new ModalWithImage("#preview__image-modal");
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  descriptionSelector: ".profile__description",
+});
 
 /* FUNCTIONS */
 
@@ -169,5 +188,9 @@ addCardModalCloseButton.addEventListener("click", () =>
 previewImageCloseButton.addEventListener("click", () =>
   closePopup(previewImageModal)
 );
+
+previewModal.setEventListeners();
+
+addImageModal.setEventListeners();
 
 initialCards.forEach(renderCard);
