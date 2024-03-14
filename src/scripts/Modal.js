@@ -9,7 +9,7 @@ export default class Modal {
   }
 
   close = () => {
-    this._modalElement.classList.remover("modal_opened");
+    this._modalElement.classList.remove("modal_opened");
     document.removeEventListener("keyup", this._handleEscClose);
   };
 
