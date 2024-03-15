@@ -105,7 +105,6 @@ function handleAddCardFormSubmit(values) {
   addCardModal.close();
   cardSection.addItem({ name: values.title, link: values.url });
   addCardFormValidator.disableButton();
-  addCardFormElement.reset();
 }
 
 function handleImageClick(cardData) {
