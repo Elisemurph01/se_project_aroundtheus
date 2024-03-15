@@ -1,9 +1,9 @@
-import FormValidator from "../scripts/FormValidator.js";
-import Card from "../scripts/Card.js";
-import Section from "../scripts/Section.js";
-import ModalWithForm from "../scripts/ModalWithForm.js";
-import ModalWithImage from "../scripts/ModalWithImage.js";
-import UserInfo from "../scripts/UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import Section from "../components/Section.js";
+import ModalWithForm from "../components/ModalWithForm.js";
+import ModalWithImage from "../components/ModalWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
 
 const initialCards = [
@@ -37,12 +37,6 @@ const initialCards = [
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileName = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addNewCardButton = document.querySelector("#profile-add-button");
 const addCardFormElement = document.querySelector("#add-card-form");
@@ -74,7 +68,7 @@ const addCardModal = new ModalWithForm(
   formValidationConfig
 );
 
-const renderCardSection = new Section(
+const cardSection = new Section(
   {
     items: initialCards,
     renderer: createCard,
@@ -95,6 +89,8 @@ const userInfo = new UserInfo({
   descriptionSelector: ".profile__description",
 });
 
+/* FUNCTIONS */
+
 function handleProfileEditSubmit(values) {
   userInfo.setUserInfo(values);
   editProfileModal.close();
@@ -107,10 +103,9 @@ function createCard(cardData) {
 
 function handleAddCardFormSubmit(values) {
   addCardModal.close();
-  renderCardSection.addItem({ name: values.title, link: values.url });
-
-  addCardFormElement.reset();
+  cardSection.addItem({ name: values.title, link: values.url });
   addCardFormValidator.disableButton();
+  addCardFormElement.reset();
 }
 
 function handleImageClick(cardData) {
@@ -121,19 +116,15 @@ function handleImageClick(cardData) {
 
 profileEditButton.addEventListener("click", () => {
   editProfileModal.open();
-  profileTitleInput.value = profileName.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  const profileInfo = userInfo.getUserInfo();
+  editProfileModal.setInputValues(profileInfo);
   profileEditFormValidator.resetValidation();
 });
 
 addNewCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
-
 previewModal.setEventListeners();
-
 addCardModal.setEventListeners();
-
 editProfileModal.setEventListeners();
-
-renderCardSection.rendererItems();
+cardSection.rendererItems();

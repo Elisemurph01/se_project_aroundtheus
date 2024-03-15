@@ -6,7 +6,7 @@ export default class UserInfo {
 
   getUserInfo() {
     const userCurrentInfo = {};
-    userCurrentInfo.name = this._nameElement.textContent;
+    userCurrentInfo.title = this._nameElement.textContent;
     userCurrentInfo.description = this._descriptionElement.textContent;
     return userCurrentInfo;
   }

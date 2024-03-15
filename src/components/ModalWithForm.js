@@ -4,7 +4,7 @@ export default class ModalWithForm extends Modal {
   constructor(
     modalSelector,
     handleFormSubmit,
-    { formSelector, submitButtonSelctor }
+    { formSelector, submitButtonSelector }
   ) {
     super({ modalSelector });
     this._modalForm = this._modalElement.querySelector(formSelector);
@@ -12,7 +12,7 @@ export default class ModalWithForm extends Modal {
     this._inputList = [
       ...this._modalForm.querySelectorAll(".modal__form-input"),
     ];
-    this._button = this._modalElement.querySelector("submitButtonSelector");
+    this._button = this._modalElement.querySelector(submitButtonSelector);
   }
 
   close() {
