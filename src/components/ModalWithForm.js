@@ -15,11 +15,6 @@ export default class ModalWithForm extends Modal {
     this._button = this._modalElement.querySelector(submitButtonSelector);
   }
 
-  close() {
-    this._modalForm.reset();
-    super.close();
-  }
-
   setInputValues(data) {
     this._inputList.forEach((input) => {
       input.value = data[input.name];
